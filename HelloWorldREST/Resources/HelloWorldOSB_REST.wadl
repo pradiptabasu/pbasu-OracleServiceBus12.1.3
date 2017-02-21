@@ -1,0 +1,31 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/HelloWorldOSB/HelloWorldREST/HelloWorldOSB_REST" xmlns:ns0="http://www.example.org" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="HelloWorldOSB_REST">RestService</doc>
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.example.org" schemaLocation="HelloWorld_Schema.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/">
+         <method name="POST" soa:wsdlOperation="greetings">
+            <request>
+               <representation mediaType="application/json" element="cns:requestElement" xmlns:cns="http://www.example.org"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:responseElement" xmlns:cns="http://www.example.org"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/name">
+         <method name="POST" soa:wsdlOperation="greetingsName">
+            <request>
+               <representation mediaType="application/json" element="cns:requestElement" xmlns:cns="http://www.example.org"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:responseElement" xmlns:cns="http://www.example.org"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

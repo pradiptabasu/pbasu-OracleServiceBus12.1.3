@@ -1,0 +1,53 @@
+<wsdl:definitions name="HelloWorldOSB_REST" targetNamespace="http://xmlns.oracle.com/HelloWorldOSB/HelloWorldREST/HelloWorldOSB_REST" xmlns:tns="http://xmlns.oracle.com/HelloWorldOSB/HelloWorldREST/HelloWorldOSB_REST" xmlns:inp1="http://www.example.org" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <plnk:partnerLinkType name="HelloWorldOSB_REST">
+        <plnk:role name="HelloWorldOSB_RESTProvider" portType="tns:HelloWorldOSB_REST_ptt"/>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.example.org" schemaLocation="HelloWorld_Schema.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="greetings_inputMessage">
+        <wsdl:part name="request" element="inp1:requestElement"/>
+    </wsdl:message>
+    <wsdl:message name="greetings_outputMessage">
+        <wsdl:part name="reply" element="inp1:responseElement"/>
+    </wsdl:message>
+    <wsdl:message name="greetingsName_inputMessage">
+        <wsdl:part name="request" element="inp1:requestElement"/>
+    </wsdl:message>
+    <wsdl:message name="greetingsName_outputMessage">
+        <wsdl:part name="reply" element="inp1:responseElement"/>
+    </wsdl:message>
+    <wsdl:portType name="HelloWorldOSB_REST_ptt">
+        <wsdl:operation name="greetings">
+            <wsdl:input message="tns:greetings_inputMessage"/>
+            <wsdl:output message="tns:greetings_outputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="greetingsName">
+            <wsdl:input message="tns:greetingsName_inputMessage"/>
+            <wsdl:output message="tns:greetingsName_outputMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="HelloWorldOSB_REST_ptt-binding" type="tns:HelloWorldOSB_REST_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="greetings">
+            <soap:operation soapAction="greetings"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="greetingsName">
+            <soap:operation soapAction="greetingsName"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>
